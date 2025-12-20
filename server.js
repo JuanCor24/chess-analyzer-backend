@@ -172,8 +172,8 @@ function analizarFEN(fen) {
           const destino = coordToSquare(r, c);
           if (!defensas[square]) defensas[square] = [];
           defensas[square].push({
-            desde: square,
-            defiende: destino,
+            desde_la_casilla: square,
+            defiende_la_casilla: destino,
             pieza_que_defiende: mapTipo[piece.type] || target.type,
             pieza_defendida: mapTipo[target.type] || target.type,
             colorpiezas: mapColor[target.color] || target.color,
@@ -292,6 +292,6 @@ async function generarAnalisis(prompt) {
 }
 
 const PORT = process.env.PORT || 5000;
-app.listen(PORT, () => {
+app.listen(PORT, "0.0.0.0", () => {
   console.log(`Servidor escuchando en http://localhost:${PORT}`);
 });
